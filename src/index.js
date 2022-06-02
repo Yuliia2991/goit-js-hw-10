@@ -50,16 +50,18 @@ function renderCountryCard({ name, capital, population, flag, languages }) {
       </div>
       <p><b>Capital:</b> ${capital}</p>
       <p><b>Population:</b> ${population}</p>
-      <p><b>Languages:</b> ${languages.map(language => language.name)}</p>`;
+      <p><b>Languages:</b> ${languages
+        .map(language => `${language.name}`)
+        .join(', ')}</p>`;
   refs.info.innerHTML = markupCountryCard;
 }
 
 function renderCountriesList(countries) {
   const markupCountriesList = countries
     .map(
-      country => `<li class="countries-item">
-        <img class="flags-img" src="${country.flag}" alt="${country.name} flag" width="60" height="30"></>
-        <span>${country.name}</span>
+      ({ name, flag }) => `<li class="countries-item">
+        <img class="flags-img" src="${flag}" alt="${name} flag" width="60" height="30"></>
+        <span>${name}</span>
         </li>`
     )
     .join('');
