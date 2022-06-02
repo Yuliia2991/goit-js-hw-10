@@ -29,11 +29,9 @@ function onInput(e) {
           'Too many matches found. Please enter a more specific name.'
         );
       } else if (countries.length === 1) {
-        cleanMarkup();
         const country = countries[0];
         renderCountryCard(country);
       } else {
-        cleanMarkup();
         renderCountriesList(countries);
       }
     })
